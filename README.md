@@ -10,6 +10,10 @@ It comes with a batch script that processes all of the bins and pvrs if they hav
 
 Required Libraries:
 
+Python
+
 pip install Pillow
 
 https://developer.imaginationtech.com/solutions/pvrtextool/
+
+PVRTexToolCLI must be installed to C:\Program Files\Imgtec\PowerVR_Tools\PVRTexTool\CLI\Windows_x86_64\PVRTexToolCLI.exe
