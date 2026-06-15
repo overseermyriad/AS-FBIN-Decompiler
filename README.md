@@ -7,3 +7,8 @@ Example usage:
 AS_to_XFL.py input.bin input.pvr
 
 It comes with a batch script that processes all of the bins and pvrs if they have matching names.
+
+Required Libraries:
+
+pip install Pillow
+https://developer.imaginationtech.com/solutions/pvrtextool/
