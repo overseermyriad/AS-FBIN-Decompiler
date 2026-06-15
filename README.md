@@ -11,4 +11,5 @@ It comes with a batch script that processes all of the bins and pvrs if they hav
 Required Libraries:
 
 pip install Pillow
+
 https://developer.imaginationtech.com/solutions/pvrtextool/
