@@ -1,5 +1,5 @@
 # AS-FBIN-Decompiler
-This is a python file that decompiles the animation formats of the popular game Plants vs. Zombies: All Stars (Chinese name: 植物大战僵尸: 全明星).
+This is a python file that decompiles the animation formats of the popular game Plants vs. Zombies: All Stars (Chinese name: 植物大战僵尸: 全明星) into Adobe Animate XFL format.
 
 The decompiler currently supports IPA versions 1.0.16-1 or lower. It does not support later versions yet.
 
