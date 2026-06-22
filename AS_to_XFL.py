@@ -212,7 +212,7 @@ class FlashBinParser:
         return output
 
 # ==========================================
-# 2. Refactored Geometry Tracker
+# 2. Geometry Tracker
 # ==========================================
 def merge_limits(limit1, limit2):
     if not limit1: return limit2
@@ -393,7 +393,7 @@ def safe_str(name):
     return re.sub(r'[^a-zA-Z0-9_\-]', '', name)
 
 # ==========================================
-# 5. Multi-Layer RLE Animation Builder
+# 5. Animation Builder
 # ==========================================
 def build_timeline_layers(mc_data, scale_factor, is_root_mc, shift_x, shift_y, anim_mc_ids):
     frames = mc_data.get("frames", [])
@@ -514,7 +514,7 @@ def build_timeline_layers(mc_data, scale_factor, is_root_mc, shift_x, shift_y, a
     return "\n".join(layer_xmls)
 
 # ==========================================
-# 6. JSFL/XFL Generator
+# 6. XFL Generator
 # ==========================================
 def generate_xfl(json_data, png_folder, output_dir, scale_factor=1.0):
     print(f"-> Initializing XFL directory structure at {Path(output_dir).name}...")
