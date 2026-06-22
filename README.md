@@ -27,7 +27,7 @@ PVRTexToolCLI must be installed to C:\Program Files\Imgtec\PowerVR_Tools\PVRTexT
 
 Notes:
 
-On IPA assets, the people who compiled these assets for iPhones overcompressed them. Perhaps they did that to save space or performance. As a result, since PVR files are raw graphics data that has premultiplied alpha, converting them bavk to PNGs introduces artifacts. I cannot really do anything to fix this as the tools PowerVR provided us with can only do so much. The only way I have in mind to recover them is by making an OpenGL enviroment to render PVRs and extract the correct data, but it will be extremely difficult since PVRs compiled for Android and iOS cannot be read by PC GPUs. If you find a better method to recover them, please tell me.
+On IPA assets, the people who compiled these assets for iPhones overcompressed them. Perhaps they did that to save space or performance. As a result, since PVR files are raw graphics data that has premultiplied alpha, converting them back to PNGs introduces artifacts. I cannot really do anything to fix this as the tools PowerVR provided us with can only do so much. The only way I have in mind to recover them is by making an OpenGL enviroment to render PVRs and extract the correct data, but it will be extremely difficult since PVRs compiled for Android and iOS cannot be read by PC GPUs. If you find a better method to recover them, please tell me.
 
 This tool can take a raw PNG, a PVR or a file that has a PNG extension but is encoded as a PVR.
 
