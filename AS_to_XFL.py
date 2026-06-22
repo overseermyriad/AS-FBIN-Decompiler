@@ -239,7 +239,7 @@ def extract_physical_bounds(mc_id, target_frame, sprite_list, mc_list, scale, cu
         
     f_idx = max(0, min(target_frame, len(active_mc["frames"]) - 1))
     
-    pa, pb, pc, pd, ptx, pty = current_transform
+    oa, ob, oc, od, otx, oty = current_transform
     global_extents = None
     
     for element in active_mc["frames"][f_idx].get("elements", []):
@@ -247,17 +247,17 @@ def extract_physical_bounds(mc_id, target_frame, sprite_list, mc_list, scale, cu
         s_id = element["symbol_id"]
         
         t = element["transform"]
-        la, lb, lc, ld = float(t["a"]), -float(t["b"]), -float(t["c"]), float(t["d"])
-        ltx, lty = float(t["tx"]) * scale, -float(t["ty"]) * scale
+        xa, xb, xc, xd = float(t["a"]), -float(t["b"]), -float(t["c"]), float(t["d"])
+        xtx, xty = float(t["tx"]) * scale, -float(t["ty"]) * scale
         
-        na = pa * la + pc * lb
-        nb = pb * la + pd * lb
-        nc = pa * lc + pc * ld
-        nd = pb * lc + pd * ld
-        ntx = pa * ltx + pc * lty + ptx
-        nty = pb * ltx + pd * lty + pty
+        va = oa*xa+oc*xb
+        vb = ob*xa+od*xb
+        vc = oa*xc+oc*xd
+        vd = ob*xc+od*xd
+        vtx = oa*xtx+oc*xty+otx
+        vty = ob*xtx+od*xty+oty
         
-        new_transform = (na, nb, nc, nd, ntx, nty)
+        new_transform = (va, vb, vc, vd, vtx, vty)
         
         if e_type == "mc":
             nest_frame = element.get("nested_frame", 0)
@@ -277,8 +277,8 @@ def extract_physical_bounds(mc_id, target_frame, sprite_list, mc_list, scale, cu
                 corners = [(x, y), (x + w, y), (x + w, y + h), (x, y + h)]
                 
                 for (cx, cy) in corners:
-                    mapped_x = na * cx + nc * cy + ntx
-                    mapped_y = nb * cx + nd * cy + nty
+                    mapped_x = va * cx + vc * cy + vtx
+                    mapped_y = vb * cx + vd * cy + vty
                     
                     if not global_extents:
                         global_extents = (mapped_x, mapped_y, mapped_x, mapped_y)
@@ -293,7 +293,7 @@ def extract_physical_bounds(mc_id, target_frame, sprite_list, mc_list, scale, cu
     return global_extents
 
 # ==========================================
-# 3. PVR Hex Patcher & Converter
+# 3. PVR Converter
 # ==========================================
 def convert_pvr_to_png(input_pvr_path, output_png_path):
     cli_path = Path(r"C:\Program Files\Imgtec\PowerVR_Tools\PVRTexTool\CLI\Windows_x86_64\PVRTexToolCLI.exe")
