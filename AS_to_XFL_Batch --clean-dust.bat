@@ -32,7 +32,7 @@ for %%F in (*.bin) do (
         echo Found matching pair: !BIN_FILE! ^<---^> !PVR_FILE!
         echo Executing pipeline python script...
         
-        python AS_to_XFL.py "!BIN_FILE!" "!PVR_FILE!"
+        python AS_to_XFL.py "!BIN_FILE!" "!PVR_FILE!" --clean-dust
         
         if !errorlevel! equ 0 (
             set /a PROCESSED_COUNT+=1
@@ -46,7 +46,7 @@ for %%F in (*.bin) do (
         echo Found matching pair: !BIN_FILE! ^<---^> !PNG_FILE!
         echo Executing pipeline python script...
         
-        python AS_to_XFL.py "!BIN_FILE!" "!PNG_FILE!"
+        python AS_to_XFL.py "!BIN_FILE!" "!PNG_FILE!" --clean-dust
         
         if !errorlevel! equ 0 (
             set /a PROCESSED_COUNT+=1
